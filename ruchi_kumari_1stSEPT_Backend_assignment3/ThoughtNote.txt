@@ -1,0 +1,81 @@
+RUCHI KUMARI - 1st sept batch
+
+ruchi.kumari63@gmail.com
+Backend
+Module assignment 3 - To Do App using MySQL as Database
+
+
+                              ---- This is a descriptive note of my work----
+
+-- firstly i created two seperate folder namely frontend and backend.
+-- I have commented my code for better understanding.
+-- i have added delete functionality here as required.
+-- had done conditional rendering.
+-- database name - todoapp and table name todoapp.
+
+    -- In backend  
+       --- i firstly,created package.json using npm init -y command.
+       --- then installed express, mysql, cors and nodemon.
+       --- express helped in creating server.
+       --- mysql is my database in this project.
+       --- nodemon to avoid starting node manually again and again after changes in project.
+       --- created a file named server.js where i have done all the coding.
+       --- also, created one .gitignore file added node modules in it, to make it ready to push on git.
+
+        - server.js
+
+          -- Firstly i imported express, cors and mysql in index.js.
+          -- then, i connected my backend with mysql with default user : "root" and password : "".
+          -- and created server using express.
+          -- then i did parsing of data that will come from request.(later step but did it prior.)
+          -- used cors to connect frontend and backend. as my frontend run on 3000 and backend on 5000 port.
+             since, both run different port , ineeded cors to connect them.
+          -- created 3 apis namely 
+             ---get(/todoapp)
+             ---post(/todoapp) 
+             ---delete(/todoapp/:id)
+          -- for testing of these apis, i have used postman.
+    -- lastly, i have used localhost 5000 as listening port to start my backend file server.js on for my project.      
+
+    -- In frontend
+       --- i firstly run the command "npx create-react-app ."in terminal to create the demo react app.
+       --- then from src, removed the files and content that was not required by me.
+       --- then created two file named AddTask.jsx and Todopage.jsx and
+           hence created two functional component named AddTask and Todopage.
+       --- i have used fontawesome and tailwind css for this project. so installed those in the project.
+       --- created the ui using react.
+       --- also installed axios.
+
+       
+       - Todopage component
+         
+         -- imported react, usestate in the start and created todopage component.
+         -- created ui where there is one headline , two input section and one button named add task.
+         -- now, this two input is one for task and one for desc.
+         -- this whole thing is under form tag and button has type submit.
+         -- created two useState, one for task and one for desc.
+         -- form has onSubmit where submitHandler function has been called.
+         -- when clicking on add task button, this submitHandler function gets call and these data (task, desc)
+            gets posted on http://localhost:5000/todoapp and an alert message appears saying task added successfully.
+            and both task and  desc sets to null which means data get cleared from input field.
+         -- task successfully added in the storage and can be visible in mysql table todoapp. now to fetch this and display it
+            on screen, i created separate component named AddTask.
+         -- exported it and imported in App.js.
+
+       - AddTask component
+         
+         -- imported react, usestate and useEffect,axios in the start and created AddTask component.
+         -- created one usestate with initial value as empty array. 
+         -- used fetch method to fetch data from api and saves it in a setRendertask (useState function).
+         -- used useEffect hook to load all the data before the page loads by calling getData function
+         -- added delete functionality to added task using onClick method and called deleteHandler function when it runs.
+         -- in deleteHandler function , used axios to delete data from server by id and reloaded the page.
+         -- now did conditional rendering, when there is no task added, it will display no task added but when there is 
+            task it will display those task.
+         -- exported it and imported in Todopage.
+
+      ---finally rendered Todopage component in App component and App component in index.js under react strict mode.
+
+-- i have deleted node modules before submitting my project, so please open terminal and install the same using 
+
+      command - npm i 
